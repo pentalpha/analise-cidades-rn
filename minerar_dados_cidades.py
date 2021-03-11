@@ -265,6 +265,7 @@ def get_city_lists():
 
 def scrap_city_list(city_list_file, processes):
     if not os.path.exists(city_list_file + ".OK"):
+        print("Scraping", city_list_file)
         cities_rn = read_cities(city_list_path=city_list_file)
         city_chunks = [x.tolist() 
                        for x in np.array_split(cities_rn, processes)]
@@ -284,11 +285,9 @@ def scrap_city_list(city_list_file, processes):
                     path = city_list_file+"."+name+'.tsv'
                     if os.path.exists(path):
                         os.remove(path)
-    else:
-        print(city_list_file + ".OK", "already exists, skiping")
 
 #editar número de processos e número de cidades (ou todas as cidades) aqui:
-def scrap_cities(processes=3):
+def scrap_cities(processes=4):
     city_lists = get_city_lists()
     for city_list in tqdm(city_lists):
         scrap_city_list(city_list, processes)
