@@ -77,7 +77,7 @@ research_codes = {
     }
 properties = list(research_codes.keys())
 
-output_dir = str(os.path.dirname(__file__)) + "/output"
+output_dir = os.path.join(str(os.path.dirname(__file__)), "output")
 city_data_dir = os.path.join(output_dir, "city_data")
 city_names_path = str(os.path.join(city_data_dir, 'city_names.txt'))
 df_path = str(os.path.join(city_data_dir, 'cidades.txt'))
@@ -229,19 +229,20 @@ def scrap_city(driver, city, props=properties):
                                + url + " (" + str(ex) + ")"
                                +". Remaining tries: " 
                                + str(current_tries))
-                time.sleep(4.5)
+                time.sleep(3.5)
         outs = extractors[prop](tables)
         for label, data in outs.items():
             new_row[label] = data
         new_row['ANO'] = get_last_year(html)
         table_data[prop] = new_row
+        print("Got", prop, "from", city)
     return table_data
 
 def scan_city_list(cities, outputs, first):
     driver = webdriver.Firefox(options=options)
-    if first:
-        cities = tqdm(cities)
-    for city in cities:
+    #if first:
+    #    cities = tqdm(cities)
+    for city in tqdm(cities):
         out = scrap_city(driver, city)
         outputs.append(out)
     driver.quit()
@@ -285,8 +286,9 @@ def separate_dicts(result_dicts):
         dfs[data_type] = new_df
     return dfs
 
+#editar número de processos e número de cidades (ou todas as cidades) aqui:
 def scrap_cities(processes=5):
-    cities_rn = read_cities()[:4]
+    cities_rn = read_cities()[:12]
     city_chunks = [x.tolist() for x in np.array_split(cities_rn, processes)]
     logger.info("Starting up " + str(len(city_chunks)) + " webdrivers.")
     result_dicts = run_threads(city_chunks, scan_city_list)
