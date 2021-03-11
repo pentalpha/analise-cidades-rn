@@ -39,7 +39,7 @@ from selenium.webdriver.firefox.options import Options
 import geckodriver_autoinstaller
 geckopath = geckodriver_autoinstaller.install()
 
-from util import remover_acentos, run_threads
+from util import run_threads
 
 from configurations import configurations
 
@@ -50,14 +50,6 @@ logging.basicConfig(level=logging.ERROR,
                     datefmt="%Y-%m-%d %H:%M:%S")
 logger = logging.getLogger(__name__)
 
-aliases = {"-": ['_',' '],
-           "a": ['â','ã'],
-           "o": ['ô','õ'],
-           'c': ['ç'],
-           '': ["'"]}
-renamed_cities = {'assu': 'acu',
-                  'arez': 'ares',
-                  'boa-saude': 'januario-cicco'}
 
 hdr = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) '+
            'Gecko/20100101 Firefox/85.0 Accept: */*'}
@@ -80,8 +72,7 @@ properties = list(research_codes.keys())
 output_dir = os.path.join(str(os.path.dirname(__file__)), "output")
 city_data_dir = os.path.join(output_dir, "city_data")
 city_names_path = str(os.path.join(city_data_dir, 'city_names.txt'))
-df_path = str(os.path.join(city_data_dir, 'cidades.txt'))
-temp_df_path = str(os.path.join(city_data_dir, 'cidades.txt.tmp'))
+city_lists_dir = os.path.join(city_data_dir, "city_lists")
 if not os.path.exists(city_data_dir):
     os.mkdir(city_data_dir)
     
@@ -98,26 +89,7 @@ cols = ['PIB', 'PIB_ANO',
         'SAUDE_ANO']
 #%%
 
-def parse_str(names):
-    names = names.lower()
-    for target, to_replace in aliases.items():
-        for rp in to_replace:
-            names = names.replace(rp,target)
-    ascii_str = remover_acentos(names)
-    return ascii_str
 
-def scrap_municipios_wikipedia():
-    tables = pd.read_html(wikipedia_cities)
-    mun_tables = tables[0]
-    cities = mun_tables["Município"].tolist()
-    parsed_cities = [parse_str(city) for city in tqdm(cities)]
-    for i in range(len(parsed_cities)):
-        for old, new in renamed_cities.items():
-            if parsed_cities[i] == old:
-                parsed_cities[i] = new
-    original_and_new = [parsed_cities[i]+"\t"+cities[i]
-                        for i in range(len(parsed_cities))]
-    return original_and_new
     
 def ibge_url(city,data_to_get):
     base = ibge_base+city+"/pesquisa"
@@ -237,21 +209,19 @@ def scrap_city(driver, city, props=properties):
             new_row[label] = data
         new_row['ANO'] = get_last_year(html)
         table_data[prop] = new_row
-        print("Got", prop, "from", city)
+        #print("Got", prop, "from", city)
     return table_data
 
 def scan_city_list(cities, outputs, first):
     driver = webdriver.Firefox(options=options)
-    #if first:
-    #    cities = tqdm(cities)
-    for city in tqdm(cities):
+    for city in cities:
         out = scrap_city(driver, city)
         outputs.append(out)
     driver.quit()
 
-def read_cities():
+def read_cities(city_list_path=city_names_path):
     return [line.rstrip("\n").split()[0] 
-            for line in open(city_names_path,'r').readlines()]
+            for line in open(city_list_path,'r').readlines()]
 
 def read_city_data(path):
     lines = {}
@@ -271,10 +241,6 @@ def write_city_data(path, data):
             stream.write(line)
 
 #%%
-
-def scrap_city_names_wikipedia():
-    cities_rn = scrap_municipios_wikipedia()
-    open(city_names_path,'w').write("\n".join(cities_rn)+"\n")
     
 def separate_dicts(result_dicts):
     row_groups = {}
@@ -289,18 +255,60 @@ def separate_dicts(result_dicts):
         dfs[data_type] = new_df
     return dfs
 
-#editar número de processos e número de cidades (ou todas as cidades) aqui:
-def scrap_cities(processes=5):
-    cities_rn = read_cities()
-    city_chunks = [x.tolist() for x in np.array_split(cities_rn, processes)]
-    logger.info("Starting up " + str(len(city_chunks)) + " webdrivers.")
-    result_dicts = run_threads(city_chunks, scan_city_list)
-    dfs = separate_dicts(result_dicts)
-    for name, df in dfs.items():
-        df.to_csv(str(os.path.join(city_data_dir, name+'.tsv')),
-                  sep='\t')
+def get_city_lists():
+    lists = []
+    for i in range(100):
+        p = os.path.join(city_lists_dir,str(i)+".tsv")
+        if os.path.exists(p):
+            lists.append(p)
+    return lists
 
+def scrap_city_list(city_list_file, processes):
+    if not os.path.exists(city_list_file + ".OK"):
+        cities_rn = read_cities(city_list_path=city_list_file)
+        city_chunks = [x.tolist() 
+                       for x in np.array_split(cities_rn, processes)]
+        result_dicts = run_threads(city_chunks, scan_city_list)
+        dfs = separate_dicts(result_dicts)
+        if len(dfs.keys()) == 5:
+            all_correct_lens = True
+            for name, df in dfs.items():
+                df.set_index('cidade').to_csv(city_list_file+"."+name+'.tsv',
+                          sep='\t')
+                all_correct_lens = (all_correct_lens 
+                                    and len(df) == len(cities_rn))
+            if all_correct_lens:
+                open(city_list_file + ".OK", 'w').write("okay")
+            else:
+                for name, df in dfs.items():
+                    path = city_list_file+"."+name+'.tsv'
+                    if os.path.exists(path):
+                        os.remove(path)
+    else:
+        print(city_list_file + ".OK", "already exists, skiping")
+
+#editar número de processos e número de cidades (ou todas as cidades) aqui:
+def scrap_cities(processes=3):
+    city_lists = get_city_lists()
+    for city_list in tqdm(city_lists):
+        scrap_city_list(city_list, processes)
+
+scrap_cities()
 #%%
-if __name__ == '__main__':
-    scrap_city_names_wikipedia()
-    scrap_cities()
+def join_downloaded_data():
+    city_lists = get_city_lists()
+    dfs = {data_type: [] for data_type in research_codes.keys()}
+    for city_list in tqdm(city_lists):
+        if os.path.exists(city_list + ".OK"):
+            for data_type in research_codes.keys():
+                df_path = city_list + "." + data_type + ".tsv"
+                dfs[data_type].append(pd.read_csv(
+                    df_path, sep='\t', index_col=0))
+    
+    for data_type, df_list in dfs.items():
+        df = df_list[0]
+        for other_df in df_list[1:]:
+            df = df.append(other_df)
+        df.to_csv(city_data_dir+"/"+data_type+".tsv", sep='\t')
+
+join_downloaded_data()
