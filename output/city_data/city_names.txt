@@ -1,167 +1,167 @@
-natal
-mossoro
-parnamirim
-sao-goncalo-do-amarante
-macaiba
-ceara-mirim
-caico
-acu
-currais-novos
-sao-jose-de-mipibu
-santa-cruz
-nova-cruz
-apodi
-joao-camara
-canguaretama
-touros
-macau
-pau-dos-ferros
-extremoz
-barauna
-areia-branca
-nisia-floresta
-goianinha
-santo-antonio
-sao-miguel
-monte-alegre
-parelhas
-caraubas
-jucurutu
-sao-paulo-do-potengi
-guamare
-tangara
-lagoa-nova
-ipanguacu
-poco-branco
-pendencias
-jardim-de-piranhas
-pedro-velho
-upanema
-alto-do-rodrigues
-tibau-do-sul
-ares
-ielmo-marinho
-alexandria
-passa-e-fica
-governador-dix-sept-rosado
-sao-jose-do-campestre
-patu
-brejinho
-vera-cruz
-maxaranguape
-jardim-do-serido
-taipu
-serra-do-mel
-santana-do-matos
-angicos
-lajes
-campo-redondo
-montanhas
-cerro-cora
-acari
-sao-tome
-afonso-bezerra
-rio-do-fogo
-carnaubais
-tenente-ananias
-serra-caiada
-umarizal
-espirito-santo
-grossos
-sao-miguel-do-gostoso
-januario-cicco
-bom-jesus
-luis-gomes
-florania
-pureza
-campo-grande
-baia-formosa
-jacana
-martins
-marcelino-vieira
-lagoa-salgada
-carnauba-dos-dantas
-riachuelo
-sao-rafael
-serra-negra-do-norte
-cruzeta
-portalegre
-itaja
-lagoa-de-pedras
-antonio-martins
-doutor-severiano
-jandaira
-lagoa-danta
-pedro-avelino
-caicara-do-norte
-porto-do-mangue
-sao-vicente
-sao-joao-do-sabugi
-serrinha
-senador-eloi-de-souza
-equador
-tenente-laurentino-cruz
-felipe-guerra
-jose-da-penha
-sao-pedro
-itau
-serra-de-sao-bento
-encanto
-santa-maria
-sitio-novo
-bento-fernandes
-varzea
-coronel-ezequiel
-parazinho
-janduis
-rafael-fernandes
-japi
-coronel-joao-pessoa
-serrinha-dos-pintos
-ouro-branco
-lajes-pintadas
-almino-afonso
-sao-jose-do-serido
-messias-targino
-sao-bento-do-trairi
-senador-georgino-avelino
-rodolfo-fernandes
-parana
-sao-francisco-do-oeste
-olho-dagua-do-borges
-venha-ver
-riacho-de-santana
-tibau
-major-sales
-frutuoso-gomes
-lucrecia
-barcelona
-jundia
-piloes
-parau
-caicara-do-rio-do-vento
-riacho-da-cruz
-sao-fernando
-ruy-barbosa
-agua-nova
-triunfo-potiguar
-rafael-godeiro
-pedra-grande
-vila-flor
-passagem
-fernando-pedroza
-galinhos
-francisco-dantas
-lagoa-de-velhos
-sao-bento-do-norte
-santana-do-serido
-joao-dias
-jardim-de-angicos
-taboleiro-grande
-pedra-preta
-timbauba-dos-batistas
-ipueira
-bodo
-severiano-melo
-monte-das-gameleiras
-vicosa
+natal	Natal
+mossoro	Mossoró
+parnamirim	Parnamirim
+sao-goncalo-do-amarante	São Gonçalo do Amarante
+macaiba	Macaíba
+ceara-mirim	Ceará-Mirim
+caico	Caicó
+acu	Assu
+currais-novos	Currais Novos
+sao-jose-de-mipibu	São José de Mipibu
+santa-cruz	Santa Cruz
+nova-cruz	Nova Cruz
+apodi	Apodi
+joao-camara	João Câmara
+canguaretama	Canguaretama
+touros	Touros
+macau	Macau
+pau-dos-ferros	Pau dos Ferros
+extremoz	Extremoz
+barauna	Baraúna
+areia-branca	Areia Branca
+nisia-floresta	Nísia Floresta
+goianinha	Goianinha
+santo-antonio	Santo Antônio
+sao-miguel	São Miguel
+monte-alegre	Monte Alegre
+parelhas	Parelhas
+caraubas	Caraúbas
+jucurutu	Jucurutu
+sao-paulo-do-potengi	São Paulo do Potengi
+guamare	Guamaré
+tangara	Tangará
+lagoa-nova	Lagoa Nova
+ipanguacu	Ipanguaçu
+poco-branco	Poço Branco
+pendencias	Pendências
+jardim-de-piranhas	Jardim de Piranhas
+pedro-velho	Pedro Velho
+upanema	Upanema
+alto-do-rodrigues	Alto do Rodrigues
+tibau-do-sul	Tibau do Sul
+ares	Arez
+ielmo-marinho	Ielmo Marinho
+alexandria	Alexandria
+passa-e-fica	Passa-e-Fica
+governador-dix-sept-rosado	Governador Dix-Sept Rosado
+sao-jose-do-campestre	São José do Campestre
+patu	Patu
+brejinho	Brejinho
+vera-cruz	Vera Cruz
+maxaranguape	Maxaranguape
+jardim-do-serido	Jardim do Seridó
+taipu	Taipu
+serra-do-mel	Serra do Mel
+santana-do-matos	Santana do Matos
+angicos	Angicos
+lajes	Lajes
+campo-redondo	Campo Redondo
+montanhas	Montanhas
+cerro-cora	Cerro Corá
+acari	Acari
+sao-tome	São Tomé
+afonso-bezerra	Afonso Bezerra
+rio-do-fogo	Rio do Fogo
+carnaubais	Carnaubais
+tenente-ananias	Tenente Ananias
+serra-caiada	Serra Caiada
+umarizal	Umarizal
+espirito-santo	Espírito Santo
+grossos	Grossos
+sao-miguel-do-gostoso	São Miguel do Gostoso
+januario-cicco	Boa Saúde
+bom-jesus	Bom Jesus
+luis-gomes	Luís Gomes
+florania	Florânia
+pureza	Pureza
+campo-grande	Campo Grande
+baia-formosa	Baía Formosa
+jacana	Jaçanã
+martins	Martins
+marcelino-vieira	Marcelino Vieira
+lagoa-salgada	Lagoa Salgada
+carnauba-dos-dantas	Carnaúba dos Dantas
+riachuelo	Riachuelo
+sao-rafael	São Rafael
+serra-negra-do-norte	Serra Negra do Norte
+cruzeta	Cruzeta
+portalegre	Portalegre
+itaja	Itajá
+lagoa-de-pedras	Lagoa de Pedras
+antonio-martins	Antônio Martins
+doutor-severiano	Doutor Severiano
+jandaira	Jandaíra
+lagoa-danta	Lagoa d'Anta
+pedro-avelino	Pedro Avelino
+caicara-do-norte	Caiçara do Norte
+porto-do-mangue	Porto do Mangue
+sao-vicente	São Vicente
+sao-joao-do-sabugi	São João do Sabugi
+serrinha	Serrinha
+senador-eloi-de-souza	Senador Elói de Souza
+equador	Equador
+tenente-laurentino-cruz	Tenente Laurentino Cruz
+felipe-guerra	Felipe Guerra
+jose-da-penha	José da Penha
+sao-pedro	São Pedro
+itau	Itaú
+serra-de-sao-bento	Serra de São Bento
+encanto	Encanto
+santa-maria	Santa Maria
+sitio-novo	Sítio Novo
+bento-fernandes	Bento Fernandes
+varzea	Várzea
+coronel-ezequiel	Coronel Ezequiel
+parazinho	Parazinho
+janduis	Janduís
+rafael-fernandes	Rafael Fernandes
+japi	Japi
+coronel-joao-pessoa	Coronel João Pessoa
+serrinha-dos-pintos	Serrinha dos Pintos
+ouro-branco	Ouro Branco
+lajes-pintadas	Lajes Pintadas
+almino-afonso	Almino Afonso
+sao-jose-do-serido	São José do Seridó
+messias-targino	Messias Targino
+sao-bento-do-trairi	São Bento do Trairi
+senador-georgino-avelino	Senador Georgino Avelino
+rodolfo-fernandes	Rodolfo Fernandes
+parana	Paraná
+sao-francisco-do-oeste	São Francisco do Oeste
+olho-dagua-do-borges	Olho-d'Água do Borges
+venha-ver	Venha-Ver
+riacho-de-santana	Riacho de Santana
+tibau	Tibau
+major-sales	Major Sales
+frutuoso-gomes	Frutuoso Gomes
+lucrecia	Lucrécia
+barcelona	Barcelona
+jundia	Jundiá
+piloes	Pilões
+parau	Paraú
+caicara-do-rio-do-vento	Caiçara do Rio do Vento
+riacho-da-cruz	Riacho da Cruz
+sao-fernando	São Fernando
+ruy-barbosa	Ruy Barbosa
+agua-nova	Água Nova
+triunfo-potiguar	Triunfo Potiguar
+rafael-godeiro	Rafael Godeiro
+pedra-grande	Pedra Grande
+vila-flor	Vila Flor
+passagem	Passagem
+fernando-pedroza	Fernando Pedroza
+galinhos	Galinhos
+francisco-dantas	Francisco Dantas
+lagoa-de-velhos	Lagoa de Velhos
+sao-bento-do-norte	São Bento do Norte
+santana-do-serido	Santana do Seridó
+joao-dias	João Dias
+jardim-de-angicos	Jardim de Angicos
+taboleiro-grande	Taboleiro Grande
+pedra-preta	Pedra Preta
+timbauba-dos-batistas	Timbaúba dos Batistas
+ipueira	Ipueira
+bodo	Bodó
+severiano-melo	Severiano Melo
+monte-das-gameleiras	Monte das Gameleiras
+vicosa	Viçosa

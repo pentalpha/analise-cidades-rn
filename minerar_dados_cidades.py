@@ -115,7 +115,9 @@ def scrap_municipios_wikipedia():
         for old, new in renamed_cities.items():
             if parsed_cities[i] == old:
                 parsed_cities[i] = new
-    return parsed_cities
+    original_and_new = [parsed_cities[i]+"\t"+cities[i]
+                        for i in range(len(parsed_cities))]
+    return original_and_new
     
 def ibge_url(city,data_to_get):
     base = ibge_base+city+"/pesquisa"
@@ -248,7 +250,8 @@ def scan_city_list(cities, outputs, first):
     driver.quit()
 
 def read_cities():
-    return [line.rstrip("\n") for line in open(city_names_path,'r').readlines()]
+    return [line.rstrip("\n").split()[0] 
+            for line in open(city_names_path,'r').readlines()]
 
 def read_city_data(path):
     lines = {}
@@ -288,7 +291,7 @@ def separate_dicts(result_dicts):
 
 #editar número de processos e número de cidades (ou todas as cidades) aqui:
 def scrap_cities(processes=5):
-    cities_rn = read_cities()[:12]
+    cities_rn = read_cities()
     city_chunks = [x.tolist() for x in np.array_split(cities_rn, processes)]
     logger.info("Starting up " + str(len(city_chunks)) + " webdrivers.")
     result_dicts = run_threads(city_chunks, scan_city_list)
