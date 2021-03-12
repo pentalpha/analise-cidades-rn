@@ -292,7 +292,7 @@ def scrap_cities(processes=4):
     for city_list in tqdm(city_lists):
         scrap_city_list(city_list, processes)
 
-scrap_cities()
+#scrap_cities()
 #%%
 def join_downloaded_data():
     city_lists = get_city_lists()

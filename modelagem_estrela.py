@@ -18,5 +18,6 @@ base_df = dfs_no_year[0]
 for i in range(1,len(dfs_no_year)):
     base_df = base_df.join(dfs_no_year[i])
 for column in base_df.columns:
-    base_df[column] = base_df[column].astype('int64')
+    base_df[column] = base_df[column].astype('Int64')
+    base_df[column] = base_df[column].fillna(int(base_df[column].mean())) 
 base_df.to_csv("output/city_data/data_warehouse.tsv", sep='\t')
